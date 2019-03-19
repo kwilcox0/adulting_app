@@ -1,0 +1,41 @@
+<!-- Validation failure messages -->
+<% if @topic.errors.any? %>
+  <% @topic.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit topic #<%= @topic.id %>
+</h1>
+
+<hr>
+
+<!-- Form topic start -->
+<form action="/update_topic/<%= @topic.id %>" method="post">
+<!-- Form topic end -->
+
+  <!-- Label and input for topic start -->
+  <div class="form-group">
+    <label for="topic">
+      Topic
+    </label>
+
+    <!-- Input for topic start -->
+    <input type="text" id="topic" name="topic" class="form-control" value="<%= @topic.topic %>">
+    <!-- Input for topic end -->
+  </div>
+  <!-- Label and input for topic end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update topic
+  </button>
+</form>
+
+<hr>
+
+<a href="/topics">
+  Go back
+</a>
