@@ -4,6 +4,8 @@ RSpec.describe Topic, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:videos) }
+
     end
 
     describe "InDirect Associations" do
