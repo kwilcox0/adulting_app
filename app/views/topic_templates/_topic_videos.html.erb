@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @topic.videos.each do |video| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/videos/<%= video.id %>">
           <%= video.title %>
         </a>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <a href="/delete_video_from_category/<%= video.id %>">
           Delete
         </a>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="topic_videos_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "topic_templates/topic_videos_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

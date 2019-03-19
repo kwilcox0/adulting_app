@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @rating.present? %>
   <% if @rating.errors.any? %>
     <% @rating.errors.full_messages.each do |message| %>
@@ -16,39 +15,25 @@
 
 <hr>
 
-<!-- Form rating start -->
 <form action="/create_rating" method="post">
-<!-- Form rating end -->
 
-  <!-- Label and input for score start -->
   <div class="form-group">
     <label for="score">
       Score
     </label>
 
-    <!-- Input for score start -->
     <input type="text" id="score" name="score" class="form-control" value="<%= @rating.score %>">
-    <!-- Input for score end -->
   </div>
-  <!-- Label and input for score end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <input type="hidden" name="user_id" value="<%= current_user.id %>">
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for video_id start -->
   <div class="form-group">
     <label for="video_id">
       Video
     </label>
 
-    <!-- Input for video_id start -->
     <%= select_tag(:video_id, options_from_collection_for_select(Video.all, :id, :title, @rating.video_id), :class => "form-control") %>
-    <!-- Input for video_id end -->
   </div>
-  <!-- Label and input for video_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create rating

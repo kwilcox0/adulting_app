@@ -1,83 +1,54 @@
-<!-- Form video start -->
 <form action="/create_video_from_instructor" method="post">
-<!-- Form video end -->
 
-  <!-- Label and input for title start -->
   <div class="form-group">
     <label for="title">
       Title
     </label>
 
-    <!-- Input for title start -->
     <input type="text" id="title" name="title" class="form-control" value="<%= @video.title %>">
-    <!-- Input for title end -->
   </div>
-  <!-- Label and input for title end -->
 
-  <!-- Label and input for description start -->
   <div class="form-group">
     <label for="description">
       Description
     </label>
 
-    <!-- Input for description start -->
     <textarea id="description" name="description" class="form-control" rows="3"><%= @video.description %></textarea>
-    <!-- Input for description end -->
   </div>
-  <!-- Label and input for description end -->
 
-  <!-- Label and input for length start -->
   <div class="form-group">
     <label for="length">
       Length
     </label>
 
-    <!-- Input for length start -->
     <input type="text" id="length" name="length" class="form-control" value="<%= @video.length %>">
-    <!-- Input for length end -->
   </div>
-  <!-- Label and input for length end -->
 
-  <!-- Label and input for difficulty start -->
   <div class="form-group">
     <label for="difficulty">
       Difficulty
     </label>
 
-    <!-- Input for difficulty start -->
     <input type="text" id="difficulty" name="difficulty" class="form-control" value="<%= @video.difficulty %>">
-    <!-- Input for difficulty end -->
   </div>
-  <!-- Label and input for difficulty end -->
 
-  <!-- Label and input for points start -->
   <div class="form-group">
     <label for="points">
       Points
     </label>
 
-    <!-- Input for points start -->
     <input type="text" id="points" name="points" class="form-control" value="<%= @video.points %>">
-    <!-- Input for points end -->
   </div>
-  <!-- Label and input for points end -->
 
-  <!-- Label and input for instructor_id start -->
-  <!-- Input for instructor_id start -->
   <input type="hidden" name="instructor_id" value="<%= @instructor.id %>">
-  <!-- Input for instructor_id end -->
 
-  <!-- Label and input for category_id start -->
   <div class="form-group">
     <label for="category_id">
       Category
     </label>
 
-    <!-- Input for category_id start -->
     <%= select_tag(:category_id, options_from_collection_for_select(Topic.all, :id, :topic, @video.category_id), :class => "form-control") %>
-    <!-- Input for category_id end -->
   </div>
-  <!-- Label and input for category_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create video

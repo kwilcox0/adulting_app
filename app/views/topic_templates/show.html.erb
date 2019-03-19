@@ -11,58 +11,46 @@
         </a>
       </div>
 
-      <!-- Edit link topic start -->
       <div class="col">
         <a href="/topics/<%= @topic.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit topic
         </a>
       </div>
-      <!-- Edit link topic end -->
 
-      <!-- Delete link topic start -->
       <div class="col">
         <a href="/delete_topic/<%= @topic.id %>" class="btn btn-block btn-outline-secondary">
           Delete topic
         </a>
       </div>
-      <!-- Delete link topic end -->
     </div>
 
     <dl>
       <dt>
         Topic
       </dt>
-      <!-- Display topic start -->
       <dd>
         <%= @topic.topic %>
       </dd>
-      <!-- Display topic end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@topic.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@topic.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "topic_templates/topic_videos" %>
   </div>
 </div>
-<!-- Show Page Customization end -->

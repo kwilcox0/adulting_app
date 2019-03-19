@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @topic.present? %>
   <% if @topic.errors.any? %>
     <% @topic.errors.full_messages.each do |message| %>
@@ -16,21 +15,15 @@
 
 <hr>
 
-<!-- Form topic start -->
 <form action="/create_topic" method="post">
-<!-- Form topic end -->
 
-  <!-- Label and input for topic start -->
   <div class="form-group">
     <label for="topic">
       Topic
     </label>
 
-    <!-- Input for topic start -->
     <input type="text" id="topic" name="topic" class="form-control" value="<%= @topic.topic %>">
-    <!-- Input for topic end -->
   </div>
-  <!-- Label and input for topic end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create topic
