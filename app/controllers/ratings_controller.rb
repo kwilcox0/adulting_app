@@ -59,7 +59,7 @@ class RatingsController < ApplicationController
     @rating = Rating.find(params.fetch("id_to_modify"))
 
     @rating.score = params.fetch("score")
-    @rating.user_id = params.fetch("user_id")
+    
     @rating.video_id = params.fetch("video_id")
 
     if @rating.valid?
