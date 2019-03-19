@@ -6,6 +6,7 @@ class InstructorsController < ApplicationController
   end
 
   def show
+    @video = Video.new
     @instructor = Instructor.find(params.fetch("id_to_display"))
 
     render("instructor_templates/show.html.erb")

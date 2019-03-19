@@ -1,0 +1,37 @@
+<!-- Form rating start -->
+<form action="/create_rating_from_video" method="post">
+<!-- Form rating end -->
+
+  <!-- Label and input for score start -->
+  <div class="form-group">
+    <label for="score">
+      Score
+    </label>
+
+    <!-- Input for score start -->
+    <input type="text" id="score" name="score" class="form-control" value="<%= @rating.score %>">
+    <!-- Input for score end -->
+  </div>
+  <!-- Label and input for score end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @rating.user_id %>">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for video_id start -->
+  <!-- Input for video_id start -->
+  <input type="hidden" name="video_id" value="<%= @video.id %>">
+  <!-- Input for video_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create rating
+  </button>
+</form>

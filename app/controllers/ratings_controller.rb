@@ -33,6 +33,22 @@ class RatingsController < ApplicationController
     end
   end
 
+  def create_row_from_video
+    @rating = Rating.new
+
+    @rating.score = params.fetch("score")
+    @rating.user_id = params.fetch("user_id")
+    @rating.video_id = params.fetch("video_id")
+
+    if @rating.valid?
+      @rating.save
+
+      redirect_to("/videos/#{@rating.video_id}", notice: "Rating created successfully.")
+    else
+      render("rating_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @rating = Rating.find(params.fetch("prefill_with_id"))
 

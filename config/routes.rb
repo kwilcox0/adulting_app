@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # CREATE
   get("/ratings/new", { :controller => "ratings", :action => "new_form" })
   post("/create_rating", { :controller => "ratings", :action => "create_row" })
+  post("/create_rating_from_video", { :controller => "ratings", :action => "create_row_from_video" })
 
   # READ
   get("/ratings", { :controller => "ratings", :action => "index" })
@@ -66,6 +67,8 @@ Rails.application.routes.draw do
   # CREATE
   get("/videos/new", { :controller => "videos", :action => "new_form" })
   post("/create_video", { :controller => "videos", :action => "create_row" })
+  post("/create_video_from_instructor", { :controller => "videos", :action => "create_row_from_instructor" })
+  post("/create_video_from_topic", { :controller => "videos", :action => "create_row_from_topic" })
 
   # READ
   get("/videos", { :controller => "videos", :action => "index" })

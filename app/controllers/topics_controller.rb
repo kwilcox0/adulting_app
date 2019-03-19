@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @video = Video.new
     @topic = Topic.find(params.fetch("id_to_display"))
 
     render("topic_templates/show.html.erb")

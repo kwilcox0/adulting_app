@@ -6,6 +6,7 @@ class VideosController < ApplicationController
   end
 
   def show
+    @rating = Rating.new
     @video = Video.find(params.fetch("id_to_display"))
 
     render("video_templates/show.html.erb")
@@ -32,6 +33,46 @@ class VideosController < ApplicationController
       @video.save
 
       redirect_back(:fallback_location => "/videos", :notice => "Video created successfully.")
+    else
+      render("video_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_topic
+    @video = Video.new
+
+    @video.title = params.fetch("title")
+    @video.description = params.fetch("description")
+    @video.length = params.fetch("length")
+    @video.difficulty = params.fetch("difficulty")
+    @video.points = params.fetch("points")
+    @video.instructor_id = params.fetch("instructor_id")
+    @video.category_id = params.fetch("category_id")
+
+    if @video.valid?
+      @video.save
+
+      redirect_to("/topics/#{@video.category_id}", notice: "Video created successfully.")
+    else
+      render("video_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_instructor
+    @video = Video.new
+
+    @video.title = params.fetch("title")
+    @video.description = params.fetch("description")
+    @video.length = params.fetch("length")
+    @video.difficulty = params.fetch("difficulty")
+    @video.points = params.fetch("points")
+    @video.instructor_id = params.fetch("instructor_id")
+    @video.category_id = params.fetch("category_id")
+
+    if @video.valid?
+      @video.save
+
+      redirect_to("/instructors/#{@video.instructor_id}", notice: "Video created successfully.")
     else
       render("video_templates/new_form_with_errors.html.erb")
     end
