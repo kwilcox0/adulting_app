@@ -84,7 +84,7 @@
     </label>
 
     <!-- Input for instructor_id start -->
-    <input type="text" id="instructor_id" name="instructor_id" class="form-control" value="<%= @video.instructor_id %>">
+    <%= select_tag(:instructor_id, options_from_collection_for_select(Instructor.all, :id, :name, @video.instructor_id), :class => "form-control") %>
     <!-- Input for instructor_id end -->
   </div>
   <!-- Label and input for instructor_id end -->
