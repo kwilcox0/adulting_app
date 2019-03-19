@@ -1,6 +1,6 @@
 class InstructorsController < ApplicationController
   def index
-    @instructors = Instructor.all
+    @instructors = Instructor.page(params[:page]).per(10)
 
     render("instructor_templates/index.html.erb")
   end
