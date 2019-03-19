@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Instructor resource:
+
+  # CREATE
+  get("/instructors/new", { :controller => "instructors", :action => "new_form" })
+  post("/create_instructor", { :controller => "instructors", :action => "create_row" })
+
+  # READ
+  get("/instructors", { :controller => "instructors", :action => "index" })
+  get("/instructors/:id_to_display", { :controller => "instructors", :action => "show" })
+
+  # UPDATE
+  get("/instructors/:prefill_with_id/edit", { :controller => "instructors", :action => "edit_form" })
+  post("/update_instructor/:id_to_modify", { :controller => "instructors", :action => "update_row" })
+
+  # DELETE
+  get("/delete_instructor/:id_to_remove", { :controller => "instructors", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Topic resource:
 
   # CREATE
