@@ -1,0 +1,118 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Video #<%= @video.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/videos" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <!-- Edit link video start -->
+      <div class="col">
+        <a href="/videos/<%= @video.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit video
+        </a>
+      </div>
+      <!-- Edit link video end -->
+
+      <!-- Delete link video start -->
+      <div class="col">
+        <a href="/delete_video/<%= @video.id %>" class="btn btn-block btn-outline-secondary">
+          Delete video
+        </a>
+      </div>
+      <!-- Delete link video end -->
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <!-- Display title start -->
+      <dd>
+        <%= @video.title %>
+      </dd>
+      <!-- Display title end -->
+
+      <dt>
+        Description
+      </dt>
+      <!-- Display description start -->
+      <dd>
+        <%= @video.description %>
+      </dd>
+      <!-- Display description end -->
+
+      <dt>
+        Length
+      </dt>
+      <!-- Display length start -->
+      <dd>
+        <%= @video.length %>
+      </dd>
+      <!-- Display length end -->
+
+      <dt>
+        Difficulty
+      </dt>
+      <!-- Display difficulty start -->
+      <dd>
+        <%= @video.difficulty %>
+      </dd>
+      <!-- Display difficulty end -->
+
+      <dt>
+        Points
+      </dt>
+      <!-- Display points start -->
+      <dd>
+        <%= @video.points %>
+      </dd>
+      <!-- Display points end -->
+
+      <dt>
+        Instructor
+      </dt>
+      <!-- Display instructor_id start -->
+      <dd>
+        <%= @video.instructor_id %>
+      </dd>
+      <!-- Display instructor_id end -->
+
+      <dt>
+        Category
+      </dt>
+      <!-- Display category_id start -->
+      <dd>
+        <%= @video.category_id %>
+      </dd>
+      <!-- Display category_id end -->
+
+      <dt>
+        Created at
+      </dt>
+      <!-- Display created_at start -->
+      <dd>
+        <%= time_ago_in_words(@video.created_at) %> ago
+      </dd>
+      <!-- Display created_at end -->
+
+      <dt>
+        Updated at
+      </dt>
+      <!-- Display updated_at start -->
+      <dd>
+        <%= time_ago_in_words(@video.updated_at) %> ago
+      </dd>
+      <!-- Display updated_at end -->
+    </dl>
+  </div>
+</div>
+
+<!-- Show Page Customization starts -->
+
+<!-- Show Page Customization end -->
