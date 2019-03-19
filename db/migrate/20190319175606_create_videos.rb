@@ -7,7 +7,7 @@ class CreateVideos < ActiveRecord::Migration[5.1]
       t.string :difficulty
       t.integer :points
       t.integer :instructor_id
-      t.integer :category_id
+      t.integer :topic_id
 
       t.timestamps
     end

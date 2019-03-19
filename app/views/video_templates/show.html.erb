@@ -72,11 +72,11 @@
       </dd>
 
       <dt>
-        Category
+        Topic
       </dt>
       <dd>
         <% if @video.category.present? %>
-          <a href="/topics/<%= @video.category_id %>">
+          <a href="/topics/<%= @video.topic_id %>">
             <%= @video.category.topic %>
           </a>
         <% end %>
@@ -102,5 +102,11 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "video_templates/video_ratings" %>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <%= render partial: "video_templates/video_users" %>
   </div>
 </div>
