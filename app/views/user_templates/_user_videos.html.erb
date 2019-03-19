@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Videos
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.videos.each do |video| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <a href="/videos/<%= video.id %>">
+          <%= video.title %>
+        </a>
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

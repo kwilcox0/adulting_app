@@ -48,7 +48,7 @@
     <%= select_tag(:instructor_id, options_from_collection_for_select(Instructor.all, :id, :name, @video.instructor_id), :class => "form-control") %>
   </div>
 
-  <input type="hidden" name="category_id" value="<%= @topic.id %>">
+  <input type="hidden" name="topic_id" value="<%= @topic.id %>">
 
   <button class="btn btn-block btn-outline-secondary">
     Create video

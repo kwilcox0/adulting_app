@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   def index
     @q = Video.ransack(params[:q])
-    @videos = @q.result(:distinct => true).includes(:ratings, :category, :instructor).page(params[:page]).per(10)
+    @videos = @q.result(:distinct => true).includes(:ratings, :category, :instructor, :users).page(params[:page]).per(10)
 
     render("video_templates/index.html.erb")
   end
@@ -28,7 +28,7 @@ class VideosController < ApplicationController
     @video.difficulty = params.fetch("difficulty")
     @video.points = params.fetch("points")
     @video.instructor_id = params.fetch("instructor_id")
-    @video.category_id = params.fetch("category_id")
+    @video.topic_id = params.fetch("topic_id")
 
     if @video.valid?
       @video.save
@@ -48,12 +48,12 @@ class VideosController < ApplicationController
     @video.difficulty = params.fetch("difficulty")
     @video.points = params.fetch("points")
     @video.instructor_id = params.fetch("instructor_id")
-    @video.category_id = params.fetch("category_id")
+    @video.topic_id = params.fetch("topic_id")
 
     if @video.valid?
       @video.save
 
-      redirect_to("/topics/#{@video.category_id}", notice: "Video created successfully.")
+      redirect_to("/topics/#{@video.topic_id}", notice: "Video created successfully.")
     else
       render("video_templates/new_form_with_errors.html.erb")
     end
@@ -68,7 +68,7 @@ class VideosController < ApplicationController
     @video.difficulty = params.fetch("difficulty")
     @video.points = params.fetch("points")
     @video.instructor_id = params.fetch("instructor_id")
-    @video.category_id = params.fetch("category_id")
+    @video.topic_id = params.fetch("topic_id")
 
     if @video.valid?
       @video.save
@@ -94,7 +94,7 @@ class VideosController < ApplicationController
     @video.difficulty = params.fetch("difficulty")
     @video.points = params.fetch("points")
     @video.instructor_id = params.fetch("instructor_id")
-    @video.category_id = params.fetch("category_id")
+    @video.topic_id = params.fetch("topic_id")
 
     if @video.valid?
       @video.save
@@ -110,7 +110,7 @@ class VideosController < ApplicationController
 
     @video.destroy
 
-    redirect_to("/topics/#{@video.category_id}", notice: "Video deleted successfully.")
+    redirect_to("/topics/#{@video.topic_id}", notice: "Video deleted successfully.")
   end
 
   def destroy_row_from_instructor

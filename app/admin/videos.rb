@@ -1,6 +1,6 @@
 ActiveAdmin.register Video do
 
- permit_params :title, :description, :length, :difficulty, :points, :instructor_id, :category_id
+ permit_params :title, :description, :length, :difficulty, :points, :instructor_id, :topic_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
