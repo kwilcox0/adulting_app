@@ -63,6 +63,22 @@ class VideosController < ApplicationController
     end
   end
 
+  def destroy_row_from_category
+    @video = Video.find(params.fetch("id_to_remove"))
+
+    @video.destroy
+
+    redirect_to("/topics/#{@video.category_id}", notice: "Video deleted successfully.")
+  end
+
+  def destroy_row_from_instructor
+    @video = Video.find(params.fetch("id_to_remove"))
+
+    @video.destroy
+
+    redirect_to("/instructors/#{@video.instructor_id}", notice: "Video deleted successfully.")
+  end
+
   def destroy_row
     @video = Video.find(params.fetch("id_to_remove"))
 
