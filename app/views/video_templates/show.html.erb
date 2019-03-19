@@ -79,7 +79,11 @@
       </dt>
       <!-- Display instructor_id start -->
       <dd>
-        <%= @video.instructor_id %>
+        <% if @video.instructor.present? %>
+          <a href="/instructors/<%= @video.instructor_id %>">
+            <%= @video.instructor.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display instructor_id end -->
 
@@ -88,7 +92,11 @@
       </dt>
       <!-- Display category_id start -->
       <dd>
-        <%= @video.category_id %>
+        <% if @video.category.present? %>
+          <a href="/topics/<%= @video.category_id %>">
+            <%= @video.category.topic %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display category_id end -->
 

@@ -108,13 +108,21 @@
 
         <!-- Display video.instructor_id start -->
         <td>
-          <%= video.instructor.name %>
+          <% if video.instructor.present? %>
+            <a href="/instructors/<%= video.instructor.id %>">
+              <%= video.instructor.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display video.instructor_id end -->
 
         <!-- Display video.category_id start -->
         <td>
-          <%= video.category.topic %>
+          <% if video.category.present? %>
+            <a href="/topics/<%= video.category.id %>">
+              <%= video.category.topic %>
+            </a>
+          <% end %>
         </td>
         <!-- Display video.category_id end -->
 

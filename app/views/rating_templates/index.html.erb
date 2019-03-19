@@ -68,13 +68,21 @@
 
         <!-- Display rating.user_id start -->
         <td>
-          <%= rating.user.created_at %>
+          <% if rating.user.present? %>
+            <a href="/users/<%= rating.user.id %>">
+              <%= rating.user.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display rating.user_id end -->
 
         <!-- Display rating.video_id start -->
         <td>
-          <%= rating.video.title %>
+          <% if rating.video.present? %>
+            <a href="/videos/<%= rating.video.id %>">
+              <%= rating.video.title %>
+            </a>
+          <% end %>
         </td>
         <!-- Display rating.video_id end -->
 
